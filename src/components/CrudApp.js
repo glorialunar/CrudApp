@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {v4 as uuid} from 'uuid';
 import CrudForm from "./CrudForm"
 import CrudTable from "./CrudTable"
 
@@ -84,7 +85,14 @@ export default function CrudApp ()  {
     const [db, setDb] = useState(initialDb);
     const [dataToEdit, setDataToEdit] = useState(null);
 
-    const createData = (data) => {};
+    const createData = (data) => {
+        console.log(data);
+        data.id = uuid();
+        // setDb([
+        //     ...db,
+        //     data
+        // ])
+    };
     const updateData = (data) => {};
     const deleteData = (id) => {};
 
