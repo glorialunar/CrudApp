@@ -3,14 +3,19 @@ import { useState } from "react";
 const inicialForm = {
     id: null,
     name: "",
-    constellation: ""
+    finalScore: ""
 }
 
 export default function CrudForm() {
     const [form, setForm] = useState(inicialForm);
 
-    const handleChange = (e) => {
 
+    const handleChange = (e) => {
+        console.log(e);
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value,
+        })
     }
     const handleSubmit = (e) => {
 
@@ -28,13 +33,13 @@ export default function CrudForm() {
                     placeholder="Materia"
                     onChange={handleChange}
                     value={form.name}
-                    />
+                />
                 <input 
-                    type="text" 
+                    type="number" 
                     name="finalScore" 
                     placeholder="Nota Final"
                     onChange={handleChange}
-                    value={form.constellation}
+                    value={form.finalScore}
                 />
                 <input 
                     type="submit" 
