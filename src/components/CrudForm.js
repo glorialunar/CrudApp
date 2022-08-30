@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const inicialForm = {
+const initialForm = {
     id: null,
     name: "",
     finalScore: ""
@@ -13,7 +13,15 @@ export default function CrudForm({
     dataToEdit, 
     setDataToEdit
 }) {
-    const [form, setForm] = useState(inicialForm);
+    const [form, setForm] = useState(initialForm);
+    
+    useEffect(() => {
+        if(dataToEdit){
+            setForm(dataToEdit);
+        }else{
+            setForm(initialForm)
+        }
+    }, [dataToEdit]);
 
     const handleChange = (e) => {
         setForm({
@@ -42,13 +50,13 @@ export default function CrudForm({
     }
 
     const handleReset = (e) => {
-        setForm(inicialForm);
+        setForm(initialForm);
         setDataToEdit(null);
     }
 
     return ( 
         <div>
-            <h3>Agregar</h3>
+            <h3>{dataToEdit ? "Modificar" : "Agregar"}</h3>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 

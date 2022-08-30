@@ -86,19 +86,24 @@ export default function CrudApp ()  {
     const [dataToEdit, setDataToEdit] = useState(null);
 
     const createData = (data) => {
-        console.log(data);
         data.id = uuid();
-        // setDb([
-        //     ...db,
-        //     data
-        // ])
+        setDb([
+            ...db,
+            data
+        ])
     };
-    const updateData = (data) => {};
-    const deleteData = (id) => {};
+
+    const updateData = (data) => {
+        let newData = db.map(el => el.id === data.id ? data : el);
+        setDb(newData);
+    };
+
+    const deleteData = (id) => {
+        
+    };
 
     return (
         <div>
-            <h2>CRUD App</h2>
             <CrudForm 
                 createData={createData} 
                 updateData={updateData} 
