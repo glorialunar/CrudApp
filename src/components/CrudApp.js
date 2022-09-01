@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import {v4 as uuid} from 'uuid';
 import CrudForm from "./CrudForm"
 import CrudTable from "./CrudTable"
@@ -99,7 +100,21 @@ export default function CrudApp ()  {
     };
 
     const deleteData = (id) => {
-        
+        Swal.fire({
+            title: 'Quieres eliminar el registro con id: ' + id + '?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: `No`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('¡Eliminado!', '', 'success');
+                let newData = db.filter((el) => el.id !== id);
+                setDb(newData);
+            } else if (result.isDenied) {
+                Swal.fire('Los cambios no fueron guardados', '', 'info')
+            }
+        })
     };
 
     return (
