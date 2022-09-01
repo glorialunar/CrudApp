@@ -1,3 +1,4 @@
+
 function CrudTableRow({
     el, 
     setDataToEdit,
@@ -8,14 +9,16 @@ function CrudTableRow({
         <tr>
             <td>{name}</td>
             <td>{finalScore}</td>
-            <td>
+            <td className='container-buttons'>
                 <button
                     onClick={() => setDataToEdit(el)}
+                    className="button-edit"
                 >
                     Editar
                 </button>
                 <button
                     onClick={() => deleteData(id)}
+                    className="button-delete"
                 >
                     Eliminar
                 </button>
