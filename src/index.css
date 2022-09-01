@@ -1,0 +1,69 @@
+html{
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: "SourceSansPro", sans-serif;
+}
+
+*,
+*:after,
+*::befote{
+    box-sizing: inherit;
+}
+
+body{
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    background-color: #7066E0;
+    color: #FFFFFF;
+    width:max-content;
+    padding: 0.40rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin: 1rem 0.20rem;;
+}
+
+input[type=text],
+input[type=number]{
+    border: 0.10rem solid #7066E0; 
+    border-radius: 0.25rem;
+    padding: 0.40rem;
+    margin: 0.20rem;
+    width: 80vw;
+}
+
+input[type=submit],
+input[type=reset]{
+    border-radius: 0.25rem;
+    padding: 0.40rem;
+    margin: 0.20rem;
+    border: none;
+    width: 5rem;
+    font-weight: bold;
+}
+
+input[type=submit]{
+    background-color: #A5DC86;
+    color: #FFFFFF;
+}
+
+input[type=reset]{
+    background-color: #6E7881;
+    color: #FFFFFF;
+}
+
+
+@media(min-width: 520px){
+    input[type=text],
+    input[type=number]{
+        width: 500px;
+    }
+}

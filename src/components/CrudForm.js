@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import '../styles/CrudForm.css';
 import Swal from "sweetalert2";
 
 const initialForm = {
@@ -55,8 +56,8 @@ export default function CrudForm({
     }
 
     return ( 
-        <div>
-            <h3>{dataToEdit ? "Modificar" : "Agregar"}</h3>
+        <div className="form-container">
+            <p>{dataToEdit ? "Modificar materia" : "Agregar materia"}</p>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
@@ -72,15 +73,17 @@ export default function CrudForm({
                     onChange={handleChange}
                     value={form.finalScore}
                 />
-                <input 
-                    type="submit" 
-                    value="Enviar"
-                />
-                <input 
-                    type="reset" 
-                    onClick={handleReset}
-                    value="Limpiar"
-                />
+                <section>
+                    <input 
+                        type="submit" 
+                        value="Enviar"
+                    />
+                    <input 
+                        type="reset" 
+                        onClick={handleReset}
+                        value="Limpiar"
+                    />
+                </section>
             </form>
         </div>
     );
