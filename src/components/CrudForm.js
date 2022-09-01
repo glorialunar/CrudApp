@@ -37,8 +37,10 @@ export default function CrudForm({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Datos incompletos!',
-            })
-        } 
+            })    
+        } else {
+            Swal.fire('Se añadió con éxito la materia: ' + form.name)
+        }
 
         if(form.id === null){
             createData(form);

@@ -33,7 +33,7 @@ const initialDb = [
     {
         id: 6,
         name: "Soft Skill: Learning agility",
-        finalScore: undefined,
+        finalScore: "-",
     },
     {
         id: 7,
@@ -63,7 +63,7 @@ const initialDb = [
     {
         id: 12,
         name: "Soft Skill: Comunicación efectiva",
-        finalScore: undefined,
+        finalScore: "-",
     },
     {
         id: 13,
