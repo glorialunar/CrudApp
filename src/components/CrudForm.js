@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import '../styles/CrudForm.css';
 import Swal from "sweetalert2";
 
 const initialForm = {
