@@ -25,7 +25,8 @@ h1{
 /* Form */
 
 .form-container p{
-    background-color: #000000;
+    background-color: #3c3c3c;
+    box-shadow: 0.3rem 0.3rem 0.2rem #000000;
     color: #FFFFFF;
     width:max-content;
     padding: 0.40rem;
@@ -62,12 +63,12 @@ input[type=reset]{
 }
 
 input[type=submit]{
-    background-color: #A5DC86;
+    background-color: #515151;
     color: #FFFFFF;
 }
 
 input[type=reset]{
-    background-color: #6E7881;
+    background-color: #8c8c8c;
     color: #FFFFFF;
 }
 
@@ -76,7 +77,7 @@ input[type=reset]{
 table{
     border-spacing: 0;
     width: 100%;
-    border: 1px solid #6E7881;
+    border: 1px solid #8c8c8c;
     margin: 1rem 0;
 }
 
