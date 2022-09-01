@@ -1,7 +1,7 @@
 html{
     box-sizing: border-box;
     font-size: 16px;
-    font-family: "SourceSansPro", sans-serif;
+    font-family: sans-serif;
 }
 
 *,
@@ -19,6 +19,7 @@ body{
 
 h1{
     text-align: center;
+    font-style: italic;
 }
 
 /* Form */
@@ -29,7 +30,7 @@ h1{
     width:max-content;
     padding: 0.40rem;
     border-radius: 0.25rem;
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin: 1rem 0.20rem;;
 }
 
@@ -47,7 +48,6 @@ input[type=number]{
     padding: 0.40rem;
     margin: 0.20rem;
     width: 80vw;
-    cursor: pointer;
 }
 
 input[type=submit],
@@ -101,6 +101,7 @@ td:nth-child(2){
     padding: 0.40rem;
     border: none;
     border-radius: 0.3rem;
+    cursor: pointer;
 }
 
 .button-edit{
