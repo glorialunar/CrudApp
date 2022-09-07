@@ -82,9 +82,25 @@ export default function CrudApp ()  {
             denyButtonText: `No`,
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire('¡Eliminado!', '', 'success');
-                let newData = db.filter((el) => el.id !== id);
-                setDb(newData);
+                let endpoint = `${url}/${id}`;
+
+                let options = {
+                    headers: {"content-type": "application/json"}
+                };
+
+                api
+                    .del(endpoint, options)
+                    .then((res) => {
+                        if(!res.err){
+                            let newData = db.filter((el) => el.id !== id);
+                            setDb(newData);
+                            Swal.fire('¡Eliminado!', '', 'success');    
+                        }else{
+                            setError(res);
+                        }
+                    })
+
+
             } else if (result.isDenied) {
                 Swal.fire('Los cambios no fueron guardados', '', 'info')
             }
