@@ -12,12 +12,12 @@ export default function CrudApp ()  {
     const [dataToEdit, setDataToEdit] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    let api = helpHttp();
     let url = "http://localhost:5000/ctd";
+    // let api = helpHttp();
 
     useEffect(() => {
         setLoading(true);
-        api.get(url).then((res) =>{
+        helpHttp().get(url).then((res) =>{
             if(!res.err){
                 setDb(res);
                 setError(null);
@@ -27,7 +27,7 @@ export default function CrudApp ()  {
             }
             setLoading(false);
         })
-    }, []);
+    }, [url]);
 
 
     const createData = (data) => {
@@ -38,7 +38,6 @@ export default function CrudApp ()  {
                 data
             ])
         }
-        console.log(data);
     };
 
     const updateData = (data) => {
@@ -74,7 +73,7 @@ export default function CrudApp ()  {
             />
 
             {loading && <Loader/>}
-            {error && <Message/>}
+            {error && <Message msg={`error ${error.status}`}/>}
             
             {db && <CrudTable 
                         data={db}

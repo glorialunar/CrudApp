@@ -1,14 +1,14 @@
 import tristeza from '../img/tristeza.png';
 import styles from 'styled-components';
 
-const Message = () => {
+const Message = ({msg, color}) => {
     return (
         <>
             <MessageContainer>
                 <img src={tristeza} alt="Imagen de tristeza" className='tristeza'/>
                 <section className='info-container'>
                     <h2>Awwww... don't worry!!</h2>
-                    <p>It's just a 404 Error!</p>
+                    <p>It's just an {msg}</p>
                 </section>
             </MessageContainer>
         </>
@@ -35,4 +35,5 @@ const MessageContainer = styles.div`
     .info-container{
         text-align: center;
     }
+
 `
