@@ -6,7 +6,7 @@ html{
 
 *,
 *:after,
-*::befote{
+*::before{
     box-sizing: inherit;
 }
 
