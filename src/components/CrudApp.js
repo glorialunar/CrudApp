@@ -1,19 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import {v4 as uuid} from 'uuid';
+import { helpHttp } from '../helpers/helpHttp';
 import CrudForm from "./CrudForm"
 import CrudTable from "./CrudTable"
 
 export default function CrudApp ()  {
     const [db, setDb] = useState([]);
     const [dataToEdit, setDataToEdit] = useState(null);
+    let api = helpHttp();
+    let url = "http://localhost:5000/ctd";
+
+    useEffect(() => {
+        api.get(url).then((res) =>{
+            if(!res.err){
+                setDb(res);
+            }else{
+                setDb(null);
+            }
+        })
+    }, []);
+
 
     const createData = (data) => {
-        data.id = uuid();
-        setDb([
-            ...db,
-            data
-        ])
+        if(data.name !== undefined || data.finalCore !== undefined){
+            data.id = uuid();
+            setDb([
+                ...db,
+                data
+            ])
+        }
+        console.log(data);
     };
 
     const updateData = (data) => {

@@ -20,7 +20,7 @@ export const helpHttp = () => {
         options.body = JSON.stringify(options.body) || false;
         if(!options.body) delete options.body;
         
-        console.log(options);
+        // console.log(options);
 
         //Si después de 3s, no hay respuesta del servidor, entonces que aborte la op.
         setTimeout(() => {
