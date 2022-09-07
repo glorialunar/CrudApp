@@ -32,7 +32,7 @@ h1{
     padding: 0.40rem;
     border-radius: 0.25rem;
     font-size: 0.75rem;
-    margin: 1rem 0.20rem;;
+    margin: 1rem auto;
 }
 
 .form-container form {
