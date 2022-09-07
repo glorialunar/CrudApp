@@ -1,6 +1,6 @@
 export const helpHttp = () => {
     const customFetch = (endpoint, options) => {
-        const defaultHeader = {
+        const defaultHeaders = {
             accept: "application/json",
         }
         
@@ -11,9 +11,9 @@ export const helpHttp = () => {
         //Si el usuario tiene método, se deja el método, si no se definió, entonces usa el GET (suele venir por defecto)
         options.method = options.method || "GET";
         //Si el usuario especificó algunas cabeceras, combina las establecidas por default con las que ya vienen, sino deja las definidas por defecto
-        options.headers = options.header 
-        ? {...defaultHeader, ...options.header} 
-        : defaultHeader;
+        options.headers = options.headers 
+        ? {...defaultHeaders, ...options.headers} 
+        : defaultHeaders;
         
         //Si tiene body, hay que pasarlo a cadena de texto y sino, lo eliminamos (NO SE PUEDE MANDAR BODY VACÍO O FALSO, POR ESO SE ELIMINA EN LA LINEA 22). 
         //Los metodos GET no necesitan body

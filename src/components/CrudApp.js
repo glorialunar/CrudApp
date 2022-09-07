@@ -33,14 +33,21 @@ export default function CrudApp ()  {
     const createData = (data) => {
         if(data.name !== "" && data.finalCore !== ""){
             data.id = uuid();
-            api.post(url,{body: data}).then(res=>{
-                if(!res.err){
-                    setDb([...db, res]);
-                }else{
-                    setError(res);
-                }
-            })
-            
+
+            let options = {
+                body: data, 
+                headers: {"content-type": "application/json"}
+            };
+
+            api
+                .post(url, options)
+                .then((res) => {
+                    if(!res.err){
+                        setDb([...db, res]);
+                    }else{
+                        setError(res);
+                    }
+                })
         }
         
     };
