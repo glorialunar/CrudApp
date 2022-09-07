@@ -38,14 +38,14 @@ export default function CrudForm({
                 title: 'Oops...',
                 text: 'Datos incompletos!',
             })    
-        } else {
-            Swal.fire('Se añadió con éxito la materia: ' + form.name)
         }
-
+        
         if(form.id === null){
             createData(form);
+            Swal.fire('Se añadió con éxito la materia: ' + form.name)
         } else {
             updateData(form);
+            Swal.fire('Se modificó con éxito la materia: ' + form.name)
         }
 
         handleReset();
