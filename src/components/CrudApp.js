@@ -53,8 +53,24 @@ export default function CrudApp ()  {
     };
 
     const updateData = (data) => {
-        let newData = db.map(el => el.id === data.id ? data : el);
-        setDb(newData);
+        let endpoint = `${url}/${data.id}`;
+
+        let options = {
+            body: data, 
+            headers: {"content-type": "application/json"}
+        };
+
+        api
+            .put(endpoint, options)
+            .then((res) => {
+                if(!res.err){
+                    let newData = db.map(el => el.id === data.id ? data : el);
+                    setDb(newData);
+                }else{
+                    setError(res);
+                }
+            })
+
     };
 
     const deleteData = (id) => {
