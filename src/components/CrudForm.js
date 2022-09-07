@@ -3,8 +3,8 @@ import Swal from "sweetalert2";
 
 const initialForm = {
     id: null,
-    name: undefined,
-    finalScore: undefined
+    name: "",
+    finalScore: ""
 }
 
 export default function CrudForm({

@@ -13,7 +13,7 @@ export default function CrudApp ()  {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     let url = "http://localhost:5000/ctd";
-    // let api = helpHttp();
+    let api = helpHttp();
 
     useEffect(() => {
         setLoading(true);
@@ -31,13 +31,18 @@ export default function CrudApp ()  {
 
 
     const createData = (data) => {
-        if(data.name !== undefined || data.finalCore !== undefined){
+        if(data.name !== "" && data.finalCore !== ""){
             data.id = uuid();
-            setDb([
-                ...db,
-                data
-            ])
+            api.post(url,{body: data}).then(res=>{
+                if(!res.err){
+                    setDb([...db, res]);
+                }else{
+                    setError(res);
+                }
+            })
+            
         }
+        
     };
 
     const updateData = (data) => {
